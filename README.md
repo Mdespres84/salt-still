@@ -13,15 +13,15 @@ assets/img/favicon.svg
 
 ## Put it on GitHub Pages
 
-1. Create a new repository on GitHub (for example `salt-and-still`).
+1. Create a new repository on GitHub (this one is `salt-still`).
 2. Upload everything in this folder to the repository root, including `.nojekyll`.
 3. Go to **Settings → Pages**, set **Source** to *Deploy from a branch*, and choose `main` and `/ (root)`.
-4. After a minute the site will be live at `https://<your-username>.github.io/salt-and-still/`.
+4. After a minute the site will be live at `https://mdespres84.github.io/salt-still/`.
 
 ### Custom domain (optional)
 In **Settings → Pages → Custom domain**, enter something like `saltandstill.com`. Then add the DNS records GitHub shows you at your domain registrar. GitHub will create a `CNAME` file for you.
 
-The 404 page links to `/`. That works on a custom domain. On a `github.io/salt-and-still/` address, change that link to `/salt-and-still/`.
+The 404 page links to `/salt-still/` for the github.io address. If you move to a custom domain, change those two links in `404.html` back to `/`.
 
 ## Before you launch
 
