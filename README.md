@@ -53,6 +53,7 @@ The estimate on the inquiry card uses the prices set near the middle of `assets/
 var RATE = 115;        // per bartender, per hour
 var RIG = 750;         // trailer bar, Sport Coat and Black Tie
 var MIXERS = 5;        // per guest
+var ZERO_PROOF = 9;    // per guest for a zero-proof-only bar
 var CONCIERGE = 350;   // Black Tie flat fee
 var GUESTS_PER_BARTENDER = 60;
 var CUSTOM = 125;      // per custom signature cocktail

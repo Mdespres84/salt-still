@@ -47,6 +47,7 @@
   var RATE = 115;        // per bartender, per hour
   var RIG = 750;         // trailer bar, Sport Coat and Black Tie
   var MIXERS = 5;        // per guest, Sport Coat and Black Tie
+  var ZERO_PROOF = 9;    // per guest when the whole bar is zero proof (we supply every drink)
   var CONCIERGE = 350;   // Black Tie: shopping, hauling, bar captain (flat, never tied to alcohol)
   var GUESTS_PER_BARTENDER = 60;
   var CUSTOM = 125;      // per custom signature cocktail
@@ -76,7 +77,9 @@
     var pkg = picked ? picked.getAttribute('data-pkg') : '2';
     var billed = Math.max(MIN_HOURS, hours);
     var total = RATE * bartenders * billed;
-    if (pkg !== '1') total += RIG + MIXERS * guests;
+    var drinksEl = form.querySelector('input[name="drinks"]:checked');
+    var dry = drinksEl && drinksEl.value === 'Zero proof only';
+    if (pkg !== '1') total += RIG + (dry ? ZERO_PROOF : MIXERS) * guests;
     if (pkg === '3') total += CONCIERGE;
     var extras = 0;
     form.querySelectorAll('input[name="extras"]:checked').forEach(function (c) { extras += parseFloat(c.getAttribute('data-price')); });
@@ -88,10 +91,10 @@
     total += travel;
 
     totalEl.textContent = money(total);
-    detailEl.textContent = (picked ? picked.value : 'Sport Coat') + ' · ' + guests + ' guests · ' + hours + ' hours · ' +
+    detailEl.textContent = (picked ? picked.value : 'Sport Coat') + (dry ? ', zero proof' : '') + ' · ' + guests + ' guests · ' + hours + ' hours · ' +
       bartenders + (bartenders === 1 ? ' bartender' : ' bartenders') + (hours < MIN_HOURS ? ', priced at the 4-hour minimum' : '') +
       (custom ? ' · ' + custom + (custom === 1 ? ' custom cocktail' : ' custom cocktails') : '') +
-      (travel ? ' · $' + travel + ' travel' : '') + (feeAttr === 'quote' ? ' · travel quoted separately' : '') + '. Before tax. Liquor not included.';
+      (travel ? ' · $' + travel + ' travel' : '') + (feeAttr === 'quote' ? ' · travel quoted separately' : '') + (dry ? '. Before tax.' : '. Before tax. Liquor not included.');
     estField.value = money(total) + ' (' + detailEl.textContent + ')';
   }
   form.querySelectorAll('input, select').forEach(function (el) {
