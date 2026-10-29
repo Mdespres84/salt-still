@@ -59,6 +59,8 @@ var CUSTOM = 125;      // per custom signature cocktail
 var MIN_HOURS = 4;     // 2- and 3-hour parties are billed at this minimum
 ```
 
+Travel fees live on the County dropdown in `index.html` (`data-fee` on each option: Hillsborough 0, Pinellas and Pasco 100, other = quoted), plus the menu card note and the travel FAQ.
+
 The "from" prices on the menu card in `index.html` assume the 4-hour minimum and 50 guests:
 
 - Boots & Jeans: $460

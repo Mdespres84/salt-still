@@ -56,6 +56,7 @@
   var guestsEl = document.getElementById('guests');
   var hoursEl = document.getElementById('hours');
   var customEl = document.getElementById('custom');
+  var countyEl = document.getElementById('county');
   var totalEl = document.getElementById('estTotal');
   var detailEl = document.getElementById('estDetail');
   var estField = document.getElementById('f-estimate');
@@ -82,14 +83,18 @@
     total += extras;
     var custom = clampVal(customEl, 0);
     total += CUSTOM * custom;
+    var feeAttr = countyEl.options[countyEl.selectedIndex].getAttribute('data-fee');
+    var travel = feeAttr === 'quote' ? 0 : parseFloat(feeAttr);
+    total += travel;
 
     totalEl.textContent = money(total);
     detailEl.textContent = (picked ? picked.value : 'Sport Coat') + ' · ' + guests + ' guests · ' + hours + ' hours · ' +
       bartenders + (bartenders === 1 ? ' bartender' : ' bartenders') + (hours < MIN_HOURS ? ', priced at the 4-hour minimum' : '') +
-      (custom ? ' · ' + custom + (custom === 1 ? ' custom cocktail' : ' custom cocktails') : '') + '. Before tax. Liquor not included.';
+      (custom ? ' · ' + custom + (custom === 1 ? ' custom cocktail' : ' custom cocktails') : '') +
+      (travel ? ' · $' + travel + ' travel' : '') + (feeAttr === 'quote' ? ' · travel quoted separately' : '') + '. Before tax. Liquor not included.';
     estField.value = money(total) + ' (' + detailEl.textContent + ')';
   }
-  form.querySelectorAll('input').forEach(function (el) {
+  form.querySelectorAll('input, select').forEach(function (el) {
     el.addEventListener('input', calc);
     el.addEventListener('change', calc);
   });
