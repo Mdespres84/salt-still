@@ -1,9 +1,11 @@
 # Salt & Still Mobile Bar: website
 
-A static, single-page site for a trailer mobile bar serving Hillsborough County and Tampa Bay. It needs no build step and runs on GitHub Pages as-is.
+A static three-page site for a trailer mobile bar serving Hillsborough County and Tampa Bay. It needs no build step and runs on GitHub Pages as-is.
 
 ```
-index.html            the site
+index.html            home page
+weddings.html         weddings page
+parties.html          all other parties
 404.html              not-found page
 assets/css/styles.css styles
 assets/js/main.js     nav, inquiry form and its estimate
@@ -25,7 +27,7 @@ The 404 page links to `/salt-still/` for the github.io address. If you move to a
 
 ## Before you launch
 
-Search `index.html` for each of these and replace them:
+Search all three pages (`index.html`, `weddings.html`, `parties.html`) for each of these and replace them. The menu card and inquiry form appear on more than one page, so price changes must be made on each page.
 
 | What | Placeholder |
 |---|---|

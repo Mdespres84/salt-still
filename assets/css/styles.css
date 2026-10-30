@@ -244,3 +244,43 @@ img.broken { visibility: hidden; }
 .footer-links a { text-decoration: none; border-bottom: 1px solid var(--line-light); }
 .footer-links a:hover { color: var(--gold-lt); }
 .footer-fine { margin-top: 24px; font-size: .82rem; color: rgba(241, 236, 227, .5); max-width: 60ch; }
+
+/* ---------- Multi-page additions ---------- */
+.nav-links a[aria-current="page"] { opacity: 1; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+.mobile-nav a[aria-current="page"] { color: var(--gold-lt); }
+.hero.short { min-height: 78vh; min-height: 78svh; }
+
+/* Two doors: weddings / parties */
+.doors { padding-block: 0 clamp(90px, 11vw, 150px); }
+.doors-grid { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .doors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+.door { display: grid; text-decoration: none; color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+.door .frame { aspect-ratio: 4 / 3; max-width: 100%; }
+.door .frame img { transition: transform 1.2s var(--ease); }
+.door:hover .frame img { transform: scale(1.04); }
+.door-copy { display: grid; gap: 10px; padding: 26px clamp(20px, 3vw, 32px) 30px; }
+.door-title { font-family: var(--display); font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1; }
+.door-sub { color: var(--muted); max-width: 44ch; }
+.door-go { font-family: var(--serif); font-style: italic; font-size: 1.2rem; color: var(--saddle); border-bottom: 1px solid currentColor; justify-self: start; margin-top: 6px; }
+.door:hover .door-go { color: var(--ink); }
+
+/* Zero proof */
+.zero { background: #E9DEC8; padding-block: clamp(80px, 10vw, 130px); }
+.zero-grid { display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 900px) { .zero-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 72px; } }
+.zero-copy { display: grid; gap: 18px; }
+.zero .lead { font-size: 1.15rem; color: var(--muted); max-width: 46ch; }
+.zero-price { font-family: var(--serif); font-style: italic; color: var(--saddle); font-size: 1.05rem; }
+.zero-list, .perk-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.zero-list li, .perk-list li { padding-block: 20px; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.zero-list h3, .perk-list h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; letter-spacing: 0; line-height: 1.25; }
+.zero-list p, .perk-list p { color: var(--muted); max-width: 54ch; }
+
+/* Perks */
+.perks { padding-block: clamp(90px, 11vw, 150px); }
+.perks-grid { display: grid; gap: 44px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 900px) { .perks-grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 80px; } }
+.perks-photo { aspect-ratio: 4 / 5; max-width: 100%; }
+.perks h2 { margin-bottom: 28px; }
+
+.menu-lead { text-align: center; font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin: 0 auto 36px; }
